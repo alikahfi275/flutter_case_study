@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/utils/animated.dart';
-import '../../data/providers/products_provider.dart';
 import '../../widgets/products_list.dart';
+import '../../widgets/product_dialog.dart';
+import '../../data/providers/products_provider.dart';
 
 class ProductsScreen extends ConsumerWidget {
   const ProductsScreen({super.key});
@@ -30,7 +31,12 @@ class ProductsScreen extends ConsumerWidget {
         type: AnimationType.slide,
         offset: const Offset(3, 2),
         child: FloatingActionButton(
-          onPressed: () => () {},
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (ctx) => const ProductDialog(),
+            );
+          },
           backgroundColor: Colors.teal,
           child: const Icon(Icons.add, color: Colors.white),
         ),

@@ -10,7 +10,7 @@ class ApiService {
   ApiService()
     : _dio = Dio(
         BaseOptions(
-          baseUrl: "https://api.restful-api.dev/",
+          baseUrl: "https://api.restful-api.dev",
           connectTimeout: const Duration(seconds: 10),
           receiveTimeout: const Duration(seconds: 10),
         ),
@@ -18,23 +18,29 @@ class ApiService {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) {
-          print("[REQUEST] ${options.method} ${options.uri}");
+          print(
+            "[DIO - INTERCEPTOR - REQUEST] ${options.method} ${options.uri}",
+          );
           return handler.next(options);
         },
         onResponse: (response, handler) {
           const encoder = JsonEncoder.withIndent('  ');
           final pretty = encoder.convert(response.data);
 
-          print('[RESPONSE] ${response.statusCode}:\n$pretty');
+          print(
+            '[DIO - INTERCEPTOR - RESPONSE] ${response.statusCode}:\n$pretty',
+          );
           return handler.next(response);
         },
         onError: (DioException e, handler) {
           if (e.response != null) {
             const encoder = JsonEncoder.withIndent('  ');
             final pretty = encoder.convert(e.response?.data);
-            print('[ERROR] ${e.response?.statusCode}:\n$pretty');
+            print(
+              '[DIO - INTERCEPTOR - ERROR] ${e.response?.statusCode}:\n$pretty',
+            );
           } else {
-            print('[ERROR] ${e.message}');
+            print('[DIO - INTERCEPTOR - ERROR] ${e.message}');
           }
           return handler.next(e);
         },
