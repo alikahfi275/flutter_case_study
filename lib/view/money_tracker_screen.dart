@@ -6,15 +6,15 @@ import '../core/utils/formatters.dart';
 import '../widgets/money_tracker_card.dart';
 import '../widgets/money_tracker_list.dart';
 import '../widgets/money_tracker_dialog.dart';
-import '../data/providers/transaction_provider.dart';
+import '../data/providers/moeny_tracker_provider.dart';
 
 class MoneyTrackerScreen extends ConsumerWidget {
   const MoneyTrackerScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final transactions = ref.watch(transactionProvider);
-    final transactionsNotifier = ref.read(transactionProvider.notifier);
+    final transactions = ref.watch(moneyTrackerProvider);
+    final transactionsNotifier = ref.read(moneyTrackerProvider.notifier);
 
     final totalIncome = transactions
         .where((t) => t.isIncome)
@@ -96,7 +96,7 @@ class MoneyTrackerScreen extends ConsumerWidget {
           ),
           Expanded(
             child: transactions.isEmpty
-                ? const Center(child: Text('No transactions yet'))
+                ? const Center(child: Text('No Data'))
                 : MoneyTrackerList(
                     items: transactions,
                     itemBuilder: (context, tx, index) => MoneyTrackerCard(

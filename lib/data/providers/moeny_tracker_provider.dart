@@ -5,8 +5,8 @@ import '../models/money_tracker_model.dart';
 
 final uuid = const Uuid();
 
-class TransactionNotifier extends StateNotifier<List<MoneyTracker>> {
-  TransactionNotifier() : super([]);
+class MoneyTrackerNotifier extends StateNotifier<List<MoneyTracker>> {
+  MoneyTrackerNotifier() : super([]);
 
   void addTransaction(String title, double amount, bool isIncome) {
     final newTransaction = MoneyTracker(
@@ -23,7 +23,7 @@ class TransactionNotifier extends StateNotifier<List<MoneyTracker>> {
   }
 }
 
-final transactionProvider =
-    StateNotifierProvider<TransactionNotifier, List<MoneyTracker>>((ref) {
-      return TransactionNotifier();
+final moneyTrackerProvider =
+    StateNotifierProvider<MoneyTrackerNotifier, List<MoneyTracker>>((ref) {
+      return MoneyTrackerNotifier();
     });
