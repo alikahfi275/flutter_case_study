@@ -78,10 +78,10 @@ class ProductDialog extends ConsumerWidget {
                   } catch (e) {
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Failed to add product: $e'),
+                        const SnackBar(
+                          content: Text('Failed to add product'),
                           backgroundColor: Colors.redAccent,
-                          duration: const Duration(seconds: 3),
+                          duration: Duration(seconds: 3),
                         ),
                       );
                     }
