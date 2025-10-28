@@ -30,10 +30,6 @@ class ProductsRepository {
     return Product.fromJson(res);
   }
 
-  Future<void> updateProduct(String id, Map<String, dynamic> data) async {
-    await _api.put('/objects/$id', data);
-  }
-
   Future<void> deleteProduct(String id) async {
     await _api.delete('/objects/$id');
   }

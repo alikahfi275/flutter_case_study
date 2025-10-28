@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/providers/products_provider.dart';
+import '../../widgets/button_delete.dart';
 
 class ProductDetailScreen extends ConsumerWidget {
   final String id;
@@ -18,19 +19,31 @@ class ProductDetailScreen extends ConsumerWidget {
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
         ),
         foregroundColor: Colors.teal,
+        actions: [ButtonDelete(id: id)],
       ),
       body: productAsync.when(
         data: (product) {
           return Padding(
             padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
               children: [
+                Text(
+                  product.name,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                const SizedBox(height: 16),
                 if (product.data != null)
-                  for (final entry in (product.data ?? {}).entries)
-                    Text('${entry.key}: ${entry.value}')
+                  ...product.data!.entries.map(
+                    (entry) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: Text(
+                        '${entry.key}: ${entry.value}',
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  )
                 else
-                  const Text('No data'),
+                  const Text('No data available'),
               ],
             ),
           );
