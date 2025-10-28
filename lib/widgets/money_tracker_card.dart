@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../data/models/transaction.dart';
 import '../core/utils/formatters.dart';
 
-class TransactionCard extends StatelessWidget {
-  const TransactionCard({
+class MoneyTrackerCard extends StatelessWidget {
+  const MoneyTrackerCard({
     super.key,
     required this.transaction,
     required this.onDelete,

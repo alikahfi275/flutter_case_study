@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AnimatedItemList<T> extends StatefulWidget {
+class MoneyTrackerList<T> extends StatefulWidget {
   final List<T> items;
   final Widget Function(BuildContext context, T item, int index) itemBuilder;
   final Duration duration;
 
-  const AnimatedItemList({
+  const MoneyTrackerList({
     super.key,
     required this.items,
     required this.itemBuilder,
@@ -13,10 +13,10 @@ class AnimatedItemList<T> extends StatefulWidget {
   });
 
   @override
-  State<AnimatedItemList<T>> createState() => _AnimatedItemListState<T>();
+  State<MoneyTrackerList<T>> createState() => _MoneyTrackerListState<T>();
 }
 
-class _AnimatedItemListState<T> extends State<AnimatedItemList<T>> {
+class _MoneyTrackerListState<T> extends State<MoneyTrackerList<T>> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   late List<T> _items;
 
@@ -27,7 +27,7 @@ class _AnimatedItemListState<T> extends State<AnimatedItemList<T>> {
   }
 
   @override
-  void didUpdateWidget(covariant AnimatedItemList<T> oldWidget) {
+  void didUpdateWidget(covariant MoneyTrackerList<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     final newItems = widget.items;

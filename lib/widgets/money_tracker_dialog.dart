@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/providers/form_provider.dart';
 
-class AddTransactionDialog extends ConsumerWidget {
-  AddTransactionDialog({super.key, required this.onSubmit});
+class MoneyTrackerDialog extends ConsumerWidget {
+  MoneyTrackerDialog({super.key, required this.onSubmit});
 
   final Function(String title, double amount, bool isIncome) onSubmit;
   final _formKey = GlobalKey<FormState>();

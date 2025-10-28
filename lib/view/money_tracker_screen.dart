@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/utils/animated.dart';
 import '../core/utils/formatters.dart';
-import '../widgets/transaction_card.dart';
-import '../core/utils/animated_list.dart';
-import '../widgets/add_transaction_dialog.dart';
+import '../widgets/money_tracker_card.dart';
+import '../widgets/money_tracker_list.dart';
+import '../widgets/money_tracker_dialog.dart';
 import '../data/providers/transaction_provider.dart';
 
 class MoneyTrackerScreen extends ConsumerWidget {
@@ -26,7 +26,7 @@ class MoneyTrackerScreen extends ConsumerWidget {
     void openAddDialog() {
       showDialog(
         context: context,
-        builder: (_) => AddTransactionDialog(
+        builder: (_) => MoneyTrackerDialog(
           onSubmit: (title, amount, isIncome) {
             transactionsNotifier.addTransaction(title, amount, isIncome);
           },
@@ -47,7 +47,6 @@ class MoneyTrackerScreen extends ConsumerWidget {
         centerTitle: true,
       ),
       floatingActionButton: AnimatedSlideFade(
-        delay: 500,
         type: AnimationType.slide,
         offset: const Offset(0, 2),
         child: FloatingActionButton(
@@ -98,9 +97,9 @@ class MoneyTrackerScreen extends ConsumerWidget {
           Expanded(
             child: transactions.isEmpty
                 ? const Center(child: Text('No transactions yet'))
-                : AnimatedItemList(
+                : MoneyTrackerList(
                     items: transactions,
-                    itemBuilder: (context, tx, index) => TransactionCard(
+                    itemBuilder: (context, tx, index) => MoneyTrackerCard(
                       transaction: tx,
                       onDelete: () =>
                           transactionsNotifier.deleteTransaction(tx.id),
