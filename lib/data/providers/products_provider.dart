@@ -8,13 +8,11 @@ final productsListProvider =
       ProductsListNotifier.new,
     );
 
-final productDetailProvider = FutureProvider.family<Product, String>((
-  ref,
-  id,
-) async {
-  final repo = ref.watch(productsRepositoryProvider);
-  return repo.getProduct(id);
-});
+final productDetailProvider = FutureProvider.autoDispose
+    .family<Product, String>((ref, id) async {
+      final repo = ref.watch(productsRepositoryProvider);
+      return repo.getProduct(id);
+    });
 
 class ProductsListNotifier extends AsyncNotifier<List<dynamic>> {
   @override

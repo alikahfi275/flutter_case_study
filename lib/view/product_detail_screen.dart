@@ -20,22 +20,21 @@ class ProductDetailScreen extends ConsumerWidget {
         foregroundColor: Colors.teal,
       ),
       body: productAsync.when(
-        data: (product) => Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                product.name,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              Text('Year: ${product.data?['year'] ?? '-'}'),
-              Text('Price: ${product.data?['price'] ?? '-'}'),
-              Text('CPU: ${product.data?['CPU model'] ?? '-'}'),
-              Text('Disk: ${product.data?['Hard disk size'] ?? '-'}'),
-            ],
-          ),
-        ),
+        data: (product) {
+          return Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (product.data != null)
+                  for (final entry in (product.data ?? {}).entries)
+                    Text('${entry.key}: ${entry.value}')
+                else
+                  const Text('No data'),
+              ],
+            ),
+          );
+        },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, _) => Center(child: Text('Error: $err')),
       ),
