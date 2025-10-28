@@ -1,6 +1,7 @@
-import 'package:case_study/data/bottom_nav_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../data/providers/bottom_nav_provider.dart';
 
 class BottomNav extends ConsumerWidget {
   const BottomNav({super.key});

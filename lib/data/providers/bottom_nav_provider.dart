@@ -1,11 +1,12 @@
-import 'package:case_study/view/expense_tracker_screen.dart';
-import 'package:case_study/view/products_screen.dart';
 import 'package:flutter_riverpod/legacy.dart';
+
+import '../../view/money_tracker_screen.dart';
+import '../../view/products_screen.dart';
 
 class BottomNavNotifier extends StateNotifier<int> {
   BottomNavNotifier() : super(0);
 
-  final pages = const [ExpenseTrackerScreen(), ProductsScreen()];
+  final pages = const [MoneyTrackerScreen(), ProductsScreen()];
 
   void changePage(int index) {
     state = index;
