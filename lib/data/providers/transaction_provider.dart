@@ -1,15 +1,15 @@
 import 'package:uuid/uuid.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
-import '../models/transaction.dart';
+import '../models/money_tracker_model.dart';
 
 final uuid = const Uuid();
 
-class TransactionNotifier extends StateNotifier<List<Transaction>> {
+class TransactionNotifier extends StateNotifier<List<MoneyTracker>> {
   TransactionNotifier() : super([]);
 
   void addTransaction(String title, double amount, bool isIncome) {
-    final newTransaction = Transaction(
+    final newTransaction = MoneyTracker(
       id: uuid.v4(),
       title: title,
       amount: amount,
@@ -24,6 +24,6 @@ class TransactionNotifier extends StateNotifier<List<Transaction>> {
 }
 
 final transactionProvider =
-    StateNotifierProvider<TransactionNotifier, List<Transaction>>((ref) {
+    StateNotifierProvider<TransactionNotifier, List<MoneyTracker>>((ref) {
       return TransactionNotifier();
     });

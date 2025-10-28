@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/legacy.dart';
 
-import '../../data/models/form.dart';
+import '../models/form_money_tracker_model.dart';
 
-class TransactionFormNotifier extends StateNotifier<TransactionFormState> {
-  TransactionFormNotifier() : super(TransactionFormState());
+class TransactionFormNotifier extends StateNotifier<FormMoneyTrackerModel> {
+  TransactionFormNotifier() : super(FormMoneyTrackerModel());
 
   void setTitle(String value) {
     state = state.copyWith(title: value);
@@ -18,12 +18,12 @@ class TransactionFormNotifier extends StateNotifier<TransactionFormState> {
   }
 
   void reset() {
-    state = TransactionFormState();
+    state = FormMoneyTrackerModel();
   }
 }
 
 final transactionFormProvider =
     StateNotifierProvider.autoDispose<
       TransactionFormNotifier,
-      TransactionFormState
+      FormMoneyTrackerModel
     >((ref) => TransactionFormNotifier());

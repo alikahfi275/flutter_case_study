@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data/models/transaction.dart';
+import '../data/models/money_tracker_model.dart';
 import '../core/utils/formatters.dart';
 
 class MoneyTrackerCard extends StatelessWidget {
@@ -10,7 +10,7 @@ class MoneyTrackerCard extends StatelessWidget {
     required this.onDelete,
   });
 
-  final Transaction transaction;
+  final MoneyTracker transaction;
   final VoidCallback onDelete;
 
   @override

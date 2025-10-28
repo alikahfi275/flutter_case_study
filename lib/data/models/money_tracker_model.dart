@@ -1,10 +1,10 @@
-class Transaction {
+class MoneyTracker {
   final String id;
   final String title;
   final double amount;
   final bool isIncome;
 
-  Transaction({
+  MoneyTracker({
     required this.id,
     required this.title,
     required this.amount,

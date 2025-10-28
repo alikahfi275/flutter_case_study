@@ -1,20 +1,20 @@
-class TransactionFormState {
+class FormMoneyTrackerModel {
   final String title;
   final double amount;
   final bool isIncome;
 
-  TransactionFormState({
+  FormMoneyTrackerModel({
     this.title = '',
     this.amount = 0,
     this.isIncome = true,
   });
 
-  TransactionFormState copyWith({
+  FormMoneyTrackerModel copyWith({
     String? title,
     double? amount,
     bool? isIncome,
   }) {
-    return TransactionFormState(
+    return FormMoneyTrackerModel(
       title: title ?? this.title,
       amount: amount ?? this.amount,
       isIncome: isIncome ?? this.isIncome,
