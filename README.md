@@ -1,46 +1,74 @@
 lib/
+
 ├── core/
+
 │   ├── routes/
+
 │   │   └── bottom_nav.dart        # Konfigurasi navigasi bawah
+
 │   └── utils/
+
 │       ├── animated.dart          # Helper animasi & transisi
+
 │       └── formatters.dart        # Utility formatting data (tanggal, angka, dsb.)
-│
+
 ├── data/
-│   ├── models/                    # Definisi struktur data (Model)
+
+│   ├── models/
+
 │   │   ├── form_money_tracker_model.dart
+
 │   │   ├── form_product_model.dart
+
 │   │   ├── money_tracker_model.dart
+
 │   │   └── product_model.dart
-│   │
-│   ├── providers/                 # Riverpod providers
+
+│   ├── providers/
+
 │   │   ├── bottom_nav_provider.dart
+
 │   │   ├── form_provider.dart
+
 │   │   ├── moeny_tracker_provider.dart
+
 │   │   ├── product_form_provider.dart
+
 │   │   └── products_provider.dart
-│   │
-│   ├── repositories/              # Repository untuk komunikasi data
-│   │   └── products_repository.dart
-│   │
-│   └── services/                  # Layanan API & network
-│       └── api_service.dart
-│
+
+│   └── repositories/
+
+│       └── products_repository.dart
+
+├── services/
+
+│   └── api_service.dart           # Layanan API & network
+
 ├── view/
-│   ├── money_tracker_screen.dart  # Halaman utama pencatatan uang
-│   ├── product_detail_screen.dart # Detail produk
-│   ├── products_screen.dart       # Daftar produk
-│   │
-│   └── widgets/                   # Komponen UI reusable
-│       ├── button_delete.dart
-│       ├── money_tracker_card.dart
-│       ├── money_tracker_dialog.dart
-│       ├── money_trackers_list.dart
-│       ├── product_card.dart
-│       ├── product_dialog.dart
-│       └── products_list.dart
-│
-└── main.dart                      # Entry point aplikasi
+
+│   ├── money_tracker_screen.dart
+
+│   ├── product_detail_screen.dart
+
+│   └── products_screen.dart
+
+├── widgets/
+
+│   ├── button_delete.dart
+
+│   ├── money_tracker_card.dart
+
+│   ├── money_tracker_dialog.dart
+
+│   ├── money_trackers_list.dart
+
+│   ├── product_card.dart
+
+│   ├── product_dialog.dart
+
+│   └── products_list.dart
+
+└── main.dart                       # Entry point aplikasi
 
 
 ⚙️ Fitur Utama
