@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/utils/animated.dart';
 import '../core/utils/formatters.dart';
 import '../widgets/money_tracker_card.dart';
-import '../widgets/money_tracker_list.dart';
+import '../widgets/money_trackers_list.dart';
 import '../widgets/money_tracker_dialog.dart';
 import '../data/providers/moeny_tracker_provider.dart';
 
